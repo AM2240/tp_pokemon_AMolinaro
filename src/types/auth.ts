@@ -4,18 +4,18 @@ export interface User {
   username: string
 }
 
+export interface LoginPayload {
+  email: string
+  password: string
+}
+
+export interface RegisterPayload {
+  email: string
+  username: string
+  password: string
+}
+
 export interface AuthResponse {
   token: string
   user: User
-}
-
-export interface SignInPayload {
-  email: string
-  password: string
-}
-
-export interface SignUpPayload {
-  email: string
-  password: string
-  username: string
 }
