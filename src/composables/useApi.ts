@@ -3,8 +3,8 @@ import type {
   Card,
   Deck,
   DeckPayload,
-  SignInPayload,
-  SignUpPayload,
+  LoginPayload,
+  RegisterPayload,
 } from '../types/index.js'
 import { useStorage } from './useStorage.js'
 
@@ -47,14 +47,14 @@ const request = async <T>(path: string, options: RequestInit = {}) => {
  */
 export function useApi() {
   /** Connecte un utilisateur existant. Retourne le token JWT et les infos utilisateur. */
-  const signIn = ({ email, password }: SignInPayload) =>
+  const signIn = ({ email, password }: LoginPayload) =>
     request<AuthResponse>('/auth/sign-in', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
     })
 
   /** Crée un nouveau compte. Retourne le token JWT et les infos utilisateur. */
-  const signUp = ({ email, password, username }: SignUpPayload) =>
+  const signUp = ({ email, password, username }: RegisterPayload) =>
     request<AuthResponse>('/auth/sign-up', {
       method: 'POST',
       body: JSON.stringify({ email, password, username }),
